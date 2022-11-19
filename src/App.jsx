@@ -8,6 +8,7 @@ import Homepage from './pages/Homepage'
 //import {AuthStateContext} from "./context/Context";
 import HomepageLogged from './pages/HomepageLogged'
 import ProtectedRoute from './pages/ProtectedRoute'
+import Dashboard from './pages/Dashboard'
 function App() {
 //const state=useContext(AuthStateContext)
 //console.log(state)
@@ -24,6 +25,14 @@ function App() {
                 element={
                   <ProtectedRoute>
                     <Homepage />
+                  </ProtectedRoute>
+                }
+              />
+                 <Route
+                path="/dashboard"
+                element={
+                  <ProtectedRoute>
+                    <Dashboard />
                   </ProtectedRoute>
                 }
               />
