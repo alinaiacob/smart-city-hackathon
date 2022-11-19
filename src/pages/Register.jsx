@@ -2,18 +2,22 @@ import React,{useState} from 'react'
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+//import { AuthStateContext } from '../context/Context';
+import { useNavigate } from 'react-router-dom';
 import app from '../utils/firebase';
+import { useUserAuth } from '../context/Context';
 const Register = () => {
+  const navigate=useNavigate()
   let[email,setEmail]=useState('')
   let[password,setPassword]=useState('')
+  const {signUp}=useUserAuth();
   const success = () => toast.success("User was registered successfully");
  // const failure=()=>toast("error")
-  const auth = getAuth(app);
+//  const auth = getAuth(app);
   const submit=(e)=>{
     e.preventDefault()
 if(email.length>0 && password.length>0){
-  createUserWithEmailAndPassword(auth, email, password)
+  signUp(email, password)
   .then((userCredential) => {
     // Signed in 
     const user = userCredential.user;
@@ -62,6 +66,7 @@ if(email.length>0 && password.length>0){
 
        </form>
        <button onClick={submit} className='register-btn'>Submit</button>
+       <div className='register-msg'>Do you have an account ?<p onClick={()=>{navigate('/login')}}>Go to Login Page</p></div>
        <ToastContainer/>
       </div>
      

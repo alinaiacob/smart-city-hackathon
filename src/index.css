@@ -26,7 +26,7 @@ body{
 .register-btn,.login-btn{
     background-color: aquamarine;
     border-radius: 20px;
-    padding:20px;
+    padding:15px;
     transition:0.3s all ease-in-out;
     border-color:none;
     font-size:large;
@@ -56,10 +56,24 @@ body{
 
 }
 .register form p,.login form p{
-    margin-bottom:8px;
+    margin-bottom:5px;
 }
 .register .form-el{
     margin:20px 5px;
+}
+.register-msg,.login-msg{
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    cursor:pointer;
+    font-size:small;
+}
+.register-msg p{
+    border-bottom:1px solid aquamarine;;
+
+}
+.login-msg p{
+    border-bottom:1px solid  rgb(215, 24, 82);;
 }
 @media only screen and (max-width:600px) {
     .register-container,.login-container{
